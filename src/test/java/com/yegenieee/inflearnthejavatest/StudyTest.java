@@ -3,13 +3,20 @@ package com.yegenieee.inflearnthejavatest;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class StudyTest {
 
     @Test
+    @DisplayName("스터디 만들기")
     void create() {
 //        Study study = new Study();
 //        assertNotNull(study);
+    }
+
+    @Test
+    @Disabled
+    void create_new_study() {
+        System.out.println("create_new_study");
     }
 
     @Test
