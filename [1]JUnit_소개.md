@@ -40,3 +40,64 @@
   - @BeforeEach / @AfterEach
   - @Disabled
 
+## 3. JUnit 5 : 테스트 이름 표기하기
+
+### `@DisplayNameGeneration`
+
+- 기본적으로 Test 이름을 표기하는 방식 : 테스트 메소드 이름이 그대로 출력됨
+  - 대부분 _ 을 이용하여 create_new_study 로 표기
+- Method와 Class 레퍼런스를 사용해서 테스트 이름을 표기하는 방법 설정
+  - class에 표기하면 클래스 내의 모든 테스트 메소드에 적용됨
+  - 표기 시 전략을 설정할 수 있음
+- 기본 구현체로 ReplaceUnderscores 제공
+
+```java
+package com.yegenieee.inflearnthejavatest;
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+// underscore를 빈 칸으로 대체해줌
+class StudyTest {
+
+    @Test
+  	@Disabled
+    void create_new_study() {
+				System.out.println("create new study method");
+    }
+
+}
+```
+
+![image-20200805213347289](/Users/yegenieee/Desktop/the-java-test/the-java-test/image/[2]image-20200805213347289.png)
+
+### `@DisplayName`
+
+- 어떤 테스트인지 테스트 이름을 보다 쉽게 표현할 수 있는 방법을 제공하는 애노테이션.
+- `@DisplayNameGeneration` 보다 우선 순위가 높다.
+
+```java
+package com.yegenieee.inflearnthejavatest;
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class StudyTest {
+
+    @Test
+  	@DisplayName("스터디 만들기")
+    void create_new_study() {
+				System.out.println("create new study method");
+    }
+
+}
+```
+
+![image-20200805213601385](/Users/yegenieee/Desktop/the-java-test/the-java-test/image/[3]image-20200805213601385.png)
+
+- DisplayName을 이용하는 것이 더 좋음
+
+
+
