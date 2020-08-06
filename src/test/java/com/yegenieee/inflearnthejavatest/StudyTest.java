@@ -9,8 +9,9 @@ class StudyTest {
     @Test
     @DisplayName("스터디 만들기")
     void create() {
-//        Study study = new Study();
-//        assertNotNull(study);
+        Study study = new Study();
+        assertNotNull(study);
+        assertEquals(StudyStatus.DRAFT, study.getStatus(), "스터디를 처음 만들면 상태값이 DRAFT여야 한다.");
     }
 
     @Test
