@@ -13,6 +13,14 @@ class StudyTest {
     @DisplayName("스터디 만들기")
     void create() {
         Study study = new Study(-10);
+
+        assertAll(
+                () -> assertNotNull(study),
+                () -> assertEquals(StudyStatus.DRAFT, study.getStatus(),
+                        () -> "스터디를 처음 만들면 " + StudyStatus.DRAFT + " 상태다"),
+                () -> assertTrue(study.getLimit() > 0, "스터디 최대 인원은 0명 이상이어야 한다.")
+        );
+
         assertNotNull(study);
         assertEquals(StudyStatus.DRAFT, study.getStatus(), new Supplier<String>() {
             @Override
